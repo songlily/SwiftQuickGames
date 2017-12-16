@@ -59,6 +59,7 @@
 				646051B91FDCB1F60012156D /* Main.storyboard */,
 				646051C81FDCB2AB0012156D /* TicTacToeViewController.swift */,
 				646051CA1FDCB3600012156D /* TicTacToeView.swift */,
+				646051C11FDCB1F60012156D /* Info.plist */,
 				646051C71FDCB2030012156D /* Supporting Files */,
 			);
 			path = QuickGames;
@@ -70,7 +71,6 @@
 				646051B51FDCB1F60012156D /* AppDelegate.swift */,
 				646051BC1FDCB1F60012156D /* Assets.xcassets */,
 				646051BE1FDCB1F60012156D /* LaunchScreen.storyboard */,
-				646051C11FDCB1F60012156D /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
