@@ -8,13 +8,25 @@
 
 import UIKit
 
+enum Player: String {
+    case X = "X"
+    case O = "O"
+    
+    func firstPlayer() -> Player {
+        return arc4random_uniform(2) == 0 ? .X : .O
+    }
+    
+    func switchPlayer() -> Player {
+        return (self == .X) ? .O : .X
+    }
+}
+
 class TicTacToeViewController: UIViewController {
     
     @IBOutlet var buttons: [UIButton]!      //auto sorted by tags 1-9
     private var game = ["", "", "",
                         "", "", "",
-                        "", "", ""]
-        {
+                        "", "", ""]     {
         didSet {
             if checkForWinner() == nil && !gameOver {
                 currentPlayer = currentPlayer.switchPlayer()
@@ -23,19 +35,19 @@ class TicTacToeViewController: UIViewController {
                 }
             }
         }
-        
     }
     
-    //     buttons = [1, 2, 3,      game = [0, 1, 2,
-    //                4, 5, 6,              3, 4, 5,
-    //                7, 8, 9]              6, 7, 8]
+    //     buttons tags = [1, 2, 3,      game = [0, 1, 2,
+    //                     4, 5, 6,              3, 4, 5,
+    //                     7, 8, 9]              6, 7, 8]
+    
+    // I chose to +1 to the button tags because by default all the tags are 0
     
     private let wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8],          //rows
                         [0, 3, 6], [1, 4, 7], [2, 5, 8],          //columns
                         [0, 4, 8], [2, 4, 6]]                     //diagonals
 
-    
-    var currentPlayer: Player = .X //: Player!
+    var currentPlayer: Player = .X  //only for initialization
     var gameOver = false
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -45,7 +57,6 @@ class TicTacToeViewController: UIViewController {
     var myScore = 0
     var aiScore = 0
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         startGame()
@@ -56,28 +67,24 @@ class TicTacToeViewController: UIViewController {
     }
     
     private func startGame() {
-        currentPlayer = currentPlayer.firstPlayer()
+        currentPlayer = currentPlayer.firstPlayer()     //randomize first player
         if currentPlayer == .O {
             aiMakeMove()
         }
     }
     
     @IBAction private func makeMove(_ sender: UIButton) {
-        let play = sender.tag - 1
+        let play = sender.tag - 1           //subtract one to accomodate the diff btwn game and buttons
         guard (game[play] == "" && !gameOver) else { return }
         
-        sender.setTitle("X", for: .normal)   //change button
-        game[play] = "X"                    //record in game
-        
-//        game[play] = currentPlayer.rawValue                     //record in game
-//        sender.setTitle(currentPlayer.rawValue, for: .normal)   //change button
-        
+        sender.setTitle("X", for: .normal)      //change button
+        game[play] = "X"                        //record change in game
     }
     
     private func aiMakeMove() {
         var played = false
         
-        //make winning move if any
+        //make winning move, if any
         for win in wins {
             guard !played else { return }
             
@@ -86,44 +93,42 @@ class TicTacToeViewController: UIViewController {
                 || (game[win[1]] == game[win[2]] && game[win[1]] == "O") {
                 for num in 0...2 {
                     if game[win[num]] == "" {
+                        played = true
                         buttons[win[num]].setTitle("O", for: .normal)
                         game[win[num]] = "O"
-                        
-                        played = true
                     }
                 }
             }
         }
         
-        //block human's winning move if any
+        //block human's winning move, if any
         for win in wins {
             guard !played else { return }
             
-            if ((game[win[0]] == game[win[1]] || game[win[0]] == game[win[2]]) && game[win[0]] == "X")
+            if     (game[win[0]] == game[win[1]]  && game[win[0]] == "X")
+                || (game[win[0]] == game[win[2]] && game[win[0]] == "X")
                 || (game[win[1]] == game[win[2]] && game[win[1]] == "X") {
                 for num in 0...2 {
                     if game[win[num]] == "" {
+                        played = true
                         buttons[win[num]].setTitle("O", for: .normal)
                         game[win[num]] = "O"
-                        
-                        played = true
                     }
                 }
             }
         }
         
-        //else best move/random
+        //else random move
         guard !played else { return }
         
         var num: Int
-        repeat { num = Int(arc4random_uniform(9)) }
-            while (game[num] != "")
-        
-        buttons[num].setTitle("O", for: .normal)
-        game[num] = "O"
+        repeat {
+            num = Int(arc4random_uniform(9))
+        } while (game[num] != "")
         
         played = true
-        
+        buttons[num].setTitle("O", for: .normal)
+        game[num] = "O"
     }
     
     private func checkForWinner() -> Player? {
@@ -136,7 +141,6 @@ class TicTacToeViewController: UIViewController {
                game[win[1]] == game[win[2]] {
                 gameOver = true
                 resultLabel.text = "\(game[win[0]]) is the winner!"
-//                resultLabel.text = "\(currentPlayer) is the winner!"
                 replayButton.isHidden = false
                 if (game[win[0]] == "X") {
                     myScore += 1
@@ -172,17 +176,4 @@ class TicTacToeViewController: UIViewController {
         startGame()
     }
     
-}
-
-enum Player: String {
-    case X = "X"
-    case O = "O"
-    
-    func firstPlayer() -> Player {
-        return arc4random_uniform(2) == 0 ? .X : .O
-    }
-    
-    func switchPlayer() -> Player {
-        return (self == .X) ? .O : .X
-    }
 }

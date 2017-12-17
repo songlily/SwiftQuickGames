@@ -10,7 +10,6 @@ import UIKit
 
 @IBDesignable
 class TicTacToeView: UIView {
-    //draws grid
     
     var lineWidth: CGFloat = 7.0
     var color: UIColor = UIColor.darkGray
@@ -47,6 +46,7 @@ class TicTacToeView: UIView {
     override func draw(_ rect: CGRect) {
         color.set()
         
+        //draws grid lines for game
         pathForGrid(.left).stroke()
         pathForGrid(.right).stroke()
         pathForGrid(.top).stroke()
