@@ -39,7 +39,7 @@ class TicTacToeView: UIView {
             line.addLine(to: CGPoint(x: bounds.width, y: (bounds.height * 2 / 3)))
         }
         
-        return line //UIBezierPath()
+        return line
     }
     
     

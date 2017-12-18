@@ -28,6 +28,7 @@ class TicTacToeViewController: UIViewController {
                         "", "", "",
                         "", "", ""]     {
         didSet {
+            //every time game changes, check for winner and gameover; switch players if no winner
             if checkForWinner() == nil && !gameOver {
                 currentPlayer = currentPlayer.switchPlayer()
                 if currentPlayer == .O {
@@ -40,8 +41,9 @@ class TicTacToeViewController: UIViewController {
     //     buttons tags = [1, 2, 3,      game = [0, 1, 2,
     //                     4, 5, 6,              3, 4, 5,
     //                     7, 8, 9]              6, 7, 8]
-    
+
     // I chose to +1 to the button tags because by default all the tags are 0
+    // I accomodate for this offset only in makeMove
     
     private let wins = [[0, 1, 2], [3, 4, 5], [6, 7, 8],          //rows
                         [0, 3, 6], [1, 4, 7], [2, 5, 8],          //columns
@@ -61,14 +63,11 @@ class TicTacToeViewController: UIViewController {
         super.viewDidLoad()
         startGame()
         replayButton.isHidden = true
-//        buttons.sort {
-//            $0.tag < $1.tag
-//        }
     }
     
     private func startGame() {
         currentPlayer = currentPlayer.firstPlayer()     //randomize first player
-        if currentPlayer == .O {
+        if currentPlayer == .O {                        //if first player is computer, play
             aiMakeMove()
         }
     }
@@ -77,72 +76,55 @@ class TicTacToeViewController: UIViewController {
         let play = sender.tag - 1           //subtract one to accomodate the diff btwn game and buttons
         guard (game[play] == "" && !gameOver) else { return }
         
-        sender.setTitle("X", for: .normal)      //change button
-        game[play] = "X"                        //record change in game
+        sender.setTitle(currentPlayer.rawValue, for: .normal)      //change button
+        game[play] = currentPlayer.rawValue                        //record change in game
+    }
+    
+    private func twoInARow (for letter: String) -> Bool {
+        //makes a move if two in a row to win or block human's win
+        for win in wins {
+            if     (game[win[0]] == game[win[1]] && game[win[0]] == letter)
+                || (game[win[0]] == game[win[2]] && game[win[0]] == letter)
+                || (game[win[1]] == game[win[2]] && game[win[1]] == letter) {
+                for num in 0...2 {
+                    let move = win[num]
+                    if game[move] == "" {
+                        buttons[move].setTitle(currentPlayer.rawValue, for: .normal)
+                        game[move] = currentPlayer.rawValue
+                        return true
+                    }
+                }
+            }
+        }
+        return false
     }
     
     private func aiMakeMove() {
-        var played = false
-        
-        //make winning move, if any
-        for win in wins {
-            guard !played else { return }
-            
-            if     (game[win[0]] == game[win[1]] && game[win[0]] == "O")
-                || (game[win[0]] == game[win[2]] && game[win[0]] == "O")
-                || (game[win[1]] == game[win[2]] && game[win[1]] == "O") {
-                for num in 0...2 {
-                    if game[win[num]] == "" {
-                        played = true
-                        buttons[win[num]].setTitle("O", for: .normal)
-                        game[win[num]] = "O"
-                    }
-                }
+        if !twoInARow(for: "O") {          //make winning move, if any
+            if !twoInARow(for: "X") {      //block human's winning move, if any
+                var num: Int               //else random move
+                repeat {
+                    num = Int(arc4random_uniform(9))
+                } while (game[num] != "")
+                
+                buttons[num].setTitle(currentPlayer.rawValue, for: .normal)
+                game[num] = currentPlayer.rawValue
             }
         }
-        
-        //block human's winning move, if any
-        for win in wins {
-            guard !played else { return }
-            
-            if     (game[win[0]] == game[win[1]]  && game[win[0]] == "X")
-                || (game[win[0]] == game[win[2]] && game[win[0]] == "X")
-                || (game[win[1]] == game[win[2]] && game[win[1]] == "X") {
-                for num in 0...2 {
-                    if game[win[num]] == "" {
-                        played = true
-                        buttons[win[num]].setTitle("O", for: .normal)
-                        game[win[num]] = "O"
-                    }
-                }
-            }
-        }
-        
-        //else random move
-        guard !played else { return }
-        
-        var num: Int
-        repeat {
-            num = Int(arc4random_uniform(9))
-        } while (game[num] != "")
-        
-        played = true
-        buttons[num].setTitle("O", for: .normal)
-        game[num] = "O"
     }
     
     private func checkForWinner() -> Player? {
         guard !gameOver else { return nil }
         
-        //check win
+        //check for win
         for win in wins {
             if game[win[0]] != "",
                game[win[0]] == game[win[1]],
                game[win[1]] == game[win[2]] {
                 gameOver = true
-                resultLabel.text = "\(game[win[0]]) is the winner!"
+                resultLabel.text = "\(currentPlayer) is the winner!"
                 replayButton.isHidden = false
-                if (game[win[0]] == "X") {
+                if (currentPlayer == .X) {
                     myScore += 1
                     myScoreLabel.text = "You: \(myScore)"
                 } else {
@@ -153,7 +135,7 @@ class TicTacToeViewController: UIViewController {
             }
         }
         
-        //check tie
+        //check for tie
         if !game.contains("") {
             gameOver = true
             resultLabel.text = "It's a tie!"
@@ -175,5 +157,4 @@ class TicTacToeViewController: UIViewController {
         replayButton.isHidden = true
         startGame()
     }
-    
 }
