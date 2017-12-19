@@ -72,25 +72,28 @@ class TicTacToeViewController: UIViewController {
         }
     }
     
+    private func setGameCell(at index: Int, with move: String) {
+        buttons[index].setTitle(move, for: .normal)     //change button
+        game[index] = move                              //record change in game
+    }
+    
     @IBAction private func makeMove(_ sender: UIButton) {
-        let play = sender.tag - 1           //subtract one to accomodate the diff btwn game and buttons
-        guard (game[play] == "" && !gameOver) else { return }
+        let spot = sender.tag - 1           //subtract one to accomodate the diff btwn game and buttons
+        guard (game[spot] == "" && !gameOver) else { return }
         
-        sender.setTitle(currentPlayer.rawValue, for: .normal)      //change button
-        game[play] = currentPlayer.rawValue                        //record change in game
+        setGameCell(at: spot, with: currentPlayer.rawValue)
     }
     
     private func twoInARow (for letter: String) -> Bool {
-        //makes a move if two in a row to win or block human's win
+        //makes a move if two in a row
         for win in wins {
             if     (game[win[0]] == game[win[1]] && game[win[0]] == letter)
                 || (game[win[0]] == game[win[2]] && game[win[0]] == letter)
                 || (game[win[1]] == game[win[2]] && game[win[1]] == letter) {
                 for num in 0...2 {
-                    let move = win[num]
-                    if game[move] == "" {
-                        buttons[move].setTitle(currentPlayer.rawValue, for: .normal)
-                        game[move] = currentPlayer.rawValue
+                    let spot = win[num]
+                    if game[spot] == "" {
+                        setGameCell(at: spot, with: currentPlayer.rawValue)
                         return true
                     }
                 }
@@ -100,17 +103,16 @@ class TicTacToeViewController: UIViewController {
     }
     
     private func aiMakeMove() {
-        if !twoInARow(for: "O") {          //make winning move, if any
-            if !twoInARow(for: "X") {      //block human's winning move, if any
-                var num: Int               //else random move
-                repeat {
-                    num = Int(arc4random_uniform(9))
-                } while (game[num] != "")
-                
-                buttons[num].setTitle(currentPlayer.rawValue, for: .normal)
-                game[num] = currentPlayer.rawValue
-            }
+        if twoInARow(for: "O") || twoInARow(for: "X") {     //win or block human's win, if two in a row
+            return
         }
+        
+        var spot: Int               //else random move
+        repeat {
+            spot = Int(arc4random_uniform(9))
+        } while (game[spot] != "")
+        
+        setGameCell(at: spot, with: currentPlayer.rawValue)
     }
     
     private func checkForWinner() -> Player? {
@@ -148,9 +150,8 @@ class TicTacToeViewController: UIViewController {
     }
     
     @IBAction private func resetGame() {
-        for num in 0...8 {
-            game[num] = ""
-            buttons[num].setTitle("", for: .normal)
+        for spot in 0...8 {
+            setGameCell(at: spot, with: "")
         }
         gameOver = false
         resultLabel.text = " "
