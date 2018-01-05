@@ -13,6 +13,9 @@
 		646051C01FDCB1F60012156D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646051BE1FDCB1F60012156D /* LaunchScreen.storyboard */; };
 		646051C91FDCB2AB0012156D /* TicTacToeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646051C81FDCB2AB0012156D /* TicTacToeViewController.swift */; };
 		646051CB1FDCB3600012156D /* TicTacToeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646051CA1FDCB3600012156D /* TicTacToeView.swift */; };
+		6473D4641FFAF85700C388F5 /* ConnectFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473D4631FFAF85700C388F5 /* ConnectFourViewController.swift */; };
+		6473D4661FFAF87500C388F5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473D4651FFAF87500C388F5 /* MainViewController.swift */; };
+		6473D4681FFAFDA800C388F5 /* ConnectFourBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473D4671FFAFDA800C388F5 /* ConnectFourBoard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		646051C11FDCB1F60012156D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		646051C81FDCB2AB0012156D /* TicTacToeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeViewController.swift; sourceTree = "<group>"; };
 		646051CA1FDCB3600012156D /* TicTacToeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToeView.swift; sourceTree = "<group>"; };
+		6473D4631FFAF85700C388F5 /* ConnectFourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourViewController.swift; sourceTree = "<group>"; };
+		6473D4651FFAF87500C388F5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		6473D4671FFAFDA800C388F5 /* ConnectFourBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectFourBoard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				646051B91FDCB1F60012156D /* Main.storyboard */,
+				6473D4651FFAF87500C388F5 /* MainViewController.swift */,
 				646051C81FDCB2AB0012156D /* TicTacToeViewController.swift */,
 				646051CA1FDCB3600012156D /* TicTacToeView.swift */,
+				6473D4631FFAF85700C388F5 /* ConnectFourViewController.swift */,
+				6473D4671FFAFDA800C388F5 /* ConnectFourBoard.swift */,
 				646051C11FDCB1F60012156D /* Info.plist */,
 				646051C71FDCB2030012156D /* Supporting Files */,
 			);
@@ -150,6 +159,9 @@
 				646051CB1FDCB3600012156D /* TicTacToeView.swift in Sources */,
 				646051B61FDCB1F60012156D /* AppDelegate.swift in Sources */,
 				646051C91FDCB2AB0012156D /* TicTacToeViewController.swift in Sources */,
+				6473D4641FFAF85700C388F5 /* ConnectFourViewController.swift in Sources */,
+				6473D4661FFAF87500C388F5 /* MainViewController.swift in Sources */,
+				6473D4681FFAFDA800C388F5 /* ConnectFourBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
