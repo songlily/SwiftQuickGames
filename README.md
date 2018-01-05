@@ -1,2 +1,3 @@
-# SwiftTicTacToe
 # SwiftQuickGames
+
+(Previously was SwiftTicTacToe)
