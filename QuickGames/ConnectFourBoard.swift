@@ -62,9 +62,11 @@ class ConnectFourBoard: UIView {
     override func draw(_ rect: CGRect) {
         drawBoard()
         drawBlankPieces()
+        
+        // TO DO: rename later
         for element in filledPieces {
-            element.0.set()
-            drawCircle(at: element.1, element.2)
+            element.0.set()                     //set colour
+            drawCircle(at: element.1, element.2)        //sets column&row
         }
     }
 

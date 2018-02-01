@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64115871201A749000D54C8C /* GameOfLifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64115870201A749000D54C8C /* GameOfLifeViewController.swift */; };
+		64115873201A749300D54C8C /* GameOfLifeBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64115872201A749300D54C8C /* GameOfLifeBoard.swift */; };
+		642201A7200929630046CC28 /* QuickGamesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642201A6200929630046CC28 /* QuickGamesTests.swift */; };
 		646051B61FDCB1F60012156D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646051B51FDCB1F60012156D /* AppDelegate.swift */; };
 		646051BB1FDCB1F60012156D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 646051B91FDCB1F60012156D /* Main.storyboard */; };
 		646051BD1FDCB1F60012156D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 646051BC1FDCB1F60012156D /* Assets.xcassets */; };
@@ -18,7 +21,30 @@
 		6473D4681FFAFDA800C388F5 /* ConnectFourBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6473D4671FFAFDA800C388F5 /* ConnectFourBoard.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		6422019B200927FC0046CC28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 646051AA1FDCB1F60012156D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 646051B11FDCB1F60012156D;
+			remoteInfo = QuickGames;
+		};
+		642201A9200929630046CC28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 646051AA1FDCB1F60012156D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 646051B11FDCB1F60012156D;
+			remoteInfo = QuickGames;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		64115870201A749000D54C8C /* GameOfLifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameOfLifeViewController.swift; path = /Users/lilysong/Developer/QuickGames/QuickGames/GameOfLifeViewController.swift; sourceTree = "<absolute>"; };
+		64115872201A749300D54C8C /* GameOfLifeBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameOfLifeBoard.swift; path = /Users/lilysong/Developer/QuickGames/QuickGames/GameOfLifeBoard.swift; sourceTree = "<absolute>"; };
+		64220196200927FB0046CC28 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		642201A4200929630046CC28 /* QuickGamesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickGamesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		642201A6200929630046CC28 /* QuickGamesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickGamesTests.swift; sourceTree = "<group>"; };
+		642201A8200929630046CC28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		646051B21FDCB1F60012156D /* QuickGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		646051B51FDCB1F60012156D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		646051BA1FDCB1F60012156D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,6 +59,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		64220193200927FB0046CC28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		642201A1200929630046CC28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		646051AF1FDCB1F60012156D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,10 +83,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		642201A5200929630046CC28 /* QuickGamesTests */ = {
+			isa = PBXGroup;
+			children = (
+				642201A6200929630046CC28 /* QuickGamesTests.swift */,
+				642201A8200929630046CC28 /* Info.plist */,
+			);
+			path = QuickGamesTests;
+			sourceTree = "<group>";
+		};
 		646051A91FDCB1F60012156D = {
 			isa = PBXGroup;
 			children = (
 				646051B41FDCB1F60012156D /* QuickGames */,
+				642201A5200929630046CC28 /* QuickGamesTests */,
 				646051B31FDCB1F60012156D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				646051B21FDCB1F60012156D /* QuickGames.app */,
+				64220196200927FB0046CC28 /* TicTacToeTests.xctest */,
+				642201A4200929630046CC28 /* QuickGamesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +120,8 @@
 				646051CA1FDCB3600012156D /* TicTacToeView.swift */,
 				6473D4631FFAF85700C388F5 /* ConnectFourViewController.swift */,
 				6473D4671FFAFDA800C388F5 /* ConnectFourBoard.swift */,
+				64115870201A749000D54C8C /* GameOfLifeViewController.swift */,
+				64115872201A749300D54C8C /* GameOfLifeBoard.swift */,
 				646051C11FDCB1F60012156D /* Info.plist */,
 				646051C71FDCB2030012156D /* Supporting Files */,
 			);
@@ -87,6 +141,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		64220195200927FB0046CC28 /* TicTacToeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6422019F200927FC0046CC28 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */;
+			buildPhases = (
+				64220192200927FB0046CC28 /* Sources */,
+				64220193200927FB0046CC28 /* Frameworks */,
+				64220194200927FB0046CC28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6422019C200927FC0046CC28 /* PBXTargetDependency */,
+			);
+			name = TicTacToeTests;
+			productName = TicTacToeTests;
+			productReference = 64220196200927FB0046CC28 /* TicTacToeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		642201A3200929630046CC28 /* QuickGamesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 642201AB200929630046CC28 /* Build configuration list for PBXNativeTarget "QuickGamesTests" */;
+			buildPhases = (
+				642201A0200929630046CC28 /* Sources */,
+				642201A1200929630046CC28 /* Frameworks */,
+				642201A2200929630046CC28 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				642201AA200929630046CC28 /* PBXTargetDependency */,
+			);
+			name = QuickGamesTests;
+			productName = QuickGamesTests;
+			productReference = 642201A4200929630046CC28 /* QuickGamesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		646051B11FDCB1F60012156D /* QuickGames */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 646051C41FDCB1F60012156D /* Build configuration list for PBXNativeTarget "QuickGames" */;
@@ -114,6 +204,16 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Lily Song";
 				TargetAttributes = {
+					64220195200927FB0046CC28 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 646051B11FDCB1F60012156D;
+					};
+					642201A3200929630046CC28 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 646051B11FDCB1F60012156D;
+					};
 					646051B11FDCB1F60012156D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -134,11 +234,27 @@
 			projectRoot = "";
 			targets = (
 				646051B11FDCB1F60012156D /* QuickGames */,
+				64220195200927FB0046CC28 /* TicTacToeTests */,
+				642201A3200929630046CC28 /* QuickGamesTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		64220194200927FB0046CC28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		642201A2200929630046CC28 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		646051B01FDCB1F60012156D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +268,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		64220192200927FB0046CC28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		642201A0200929630046CC28 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				642201A7200929630046CC28 /* QuickGamesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		646051AE1FDCB1F60012156D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -160,12 +291,27 @@
 				646051B61FDCB1F60012156D /* AppDelegate.swift in Sources */,
 				646051C91FDCB2AB0012156D /* TicTacToeViewController.swift in Sources */,
 				6473D4641FFAF85700C388F5 /* ConnectFourViewController.swift in Sources */,
+				64115871201A749000D54C8C /* GameOfLifeViewController.swift in Sources */,
 				6473D4661FFAF87500C388F5 /* MainViewController.swift in Sources */,
 				6473D4681FFAFDA800C388F5 /* ConnectFourBoard.swift in Sources */,
+				64115873201A749300D54C8C /* GameOfLifeBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6422019C200927FC0046CC28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 646051B11FDCB1F60012156D /* QuickGames */;
+			targetProxy = 6422019B200927FC0046CC28 /* PBXContainerItemProxy */;
+		};
+		642201AA200929630046CC28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 646051B11FDCB1F60012156D /* QuickGames */;
+			targetProxy = 642201A9200929630046CC28 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		646051B91FDCB1F60012156D /* Main.storyboard */ = {
@@ -187,6 +333,70 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6422019D200927FC0046CC28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MW5HV27PJH;
+				INFOPLIST_FILE = TicTacToeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lilysong.ios.TicTacToeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickGames.app/QuickGames";
+			};
+			name = Debug;
+		};
+		6422019E200927FC0046CC28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MW5HV27PJH;
+				INFOPLIST_FILE = TicTacToeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lilysong.ios.TicTacToeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickGames.app/QuickGames";
+			};
+			name = Release;
+		};
+		642201AC200929630046CC28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MW5HV27PJH;
+				INFOPLIST_FILE = QuickGamesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lilysong.ios.QuickGamesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickGames.app/QuickGames";
+			};
+			name = Debug;
+		};
+		642201AD200929630046CC28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MW5HV27PJH;
+				INFOPLIST_FILE = QuickGamesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lilysong.ios.QuickGamesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickGames.app/QuickGames";
+			};
+			name = Release;
+		};
 		646051C21FDCB1F60012156D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -327,6 +537,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6422019F200927FC0046CC28 /* Build configuration list for PBXNativeTarget "TicTacToeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6422019D200927FC0046CC28 /* Debug */,
+				6422019E200927FC0046CC28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		642201AB200929630046CC28 /* Build configuration list for PBXNativeTarget "QuickGamesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				642201AC200929630046CC28 /* Debug */,
+				642201AD200929630046CC28 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		646051AD1FDCB1F60012156D /* Build configuration list for PBXProject "QuickGames" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

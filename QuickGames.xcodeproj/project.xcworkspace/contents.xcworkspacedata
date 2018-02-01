@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:QuickGames.xcodeproj">
+      location = "group:/Users/lilysong/Developer/QuickGames/QuickGames/GameOfLifeBoard.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/lilysong/Developer/QuickGames/QuickGames/ViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

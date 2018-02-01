@@ -11,19 +11,21 @@ import UIKit
 @IBDesignable
 class GameOfLifeBoard: UIView {
 
-    let aliveColor: UIColor = UIColor.lightGray
+    let boardColor: UIColor = UIColor.lightGray
+    let aliveColor: UIColor = UIColor.cyan
     let deadColor: UIColor = UIColor.white
     
-    var filledPieces: [(UIColor, Int, Int)] = [(UIColor, Int, Int)]()
+    var filledPieces: [(Int, Int)] = [(Int, Int)]()
     var cells: [[Int]] = Array(repeating: Array(repeating: 1, count: 100), count: 100)
     
     private func drawRect(_ column: Int, _ row: Int) {
-        let squareWidth = Int((bounds.width - 30) / 100)
-        UIBezierPath(rect: CGRect(x: column*squareWidth, y: row*squareWidth, width: squareWidth, height: squareWidth)).fill()
+//        let squareWidth = Int(bounds.width / 100)
+//        UIBezierPath(rect: CGRect(x: column*squareWidth, y: row*squareWidth, width: squareWidth, height: squareWidth)).fill()
+        
     }
-    func placePiece(for color: UIColor, at coordinates: (column: Int, row: Int)) {
+    func drawCell(for color: UIColor, at coordinates: (column: Int, row: Int)) {
         color.set()
-        filledPieces.append((color, coordinates.column, coordinates.row))
+        filledPieces.append((coordinates.column, coordinates.row))
         self.setNeedsDisplay()
     }
     

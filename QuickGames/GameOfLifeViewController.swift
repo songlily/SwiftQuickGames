@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameOfLifeViewController.swift
 //  GameOfLife
 //
 //  Created by Lily Song on 2018-01-24.
@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameOfLifeViewController: UIViewController {
+    
+    // learn more with Golly about hashlife, gliders, etc
     
     @IBOutlet weak var board: GameOfLifeBoard!  { didSet{ board.setNeedsDisplay() } }
     var gameTimer: Timer!
@@ -27,7 +29,13 @@ class ViewController: UIViewController {
     private func countNeighbours(for row: Int, _ column: Int) -> Int {
         var count = 0
         for neighbour in neighbours {
-            if board.cells[row + neighbour[0]][column + neighbour[1]] == 1 {
+            let newRow = row + neighbour[0]
+            let newColumn = column + neighbour[1]
+            
+            print (0...99 ~= newRow)
+            print (0...99 ~= newColumn)
+            guard (0...99 ~= newRow && 0...99 ~= newColumn) else { continue }
+            if board.cells[newRow][newColumn] == 1 {
                 count += 1
             }
         }
